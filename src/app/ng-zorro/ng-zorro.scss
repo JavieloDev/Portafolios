@@ -1,0 +1,1005 @@
+// COLOCAR AQUI LOS ESTILOS QUE MODIFIQUEN CLASES DE NG-ZORRO
+@import "src/assets/scss/global_variables";
+
+// check-box, check circulo
+.ant-checkbox-wrapper {
+  .ant-checkbox {
+    &:after {
+      border: none;
+    }
+  }
+
+  .ant-checkbox-inner {
+    display: block;
+
+    &:after {
+      display: block;
+    }
+  }
+
+  .ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: #d9d9d9;
+  }
+
+  &:not(:has(.ant-checkbox-disabled)) {
+    &:hover {
+      .ant-checkbox-inner {
+        border-color: $color-primario-1;
+      }
+    }
+
+    &:has(.ant-checkbox-checked) {
+      .ant-checkbox-inner {
+        background-color: $color-primario-1;
+        border-color: $color-primario-1;
+      }
+    }
+
+    &:has(.ant-checkbox-indeterminate) {
+      .ant-checkbox-inner:after {
+        background-color: $color-primario-1;
+      }
+    }
+  }
+
+  &:has(.ant-checkbox-disabled) {
+    &:has(.ant-checkbox-checked) {
+      .ant-checkbox-inner {
+        background-color: $color-primario-1-disabled;
+
+        &:after {
+          border-color: white;
+        }
+      }
+    }
+
+    &:has(.ant-checkbox-indeterminate) {
+      .ant-checkbox-inner:after {
+        background-color: $color-primario-1-disabled;
+      }
+    }
+  }
+}
+
+.nz-circle-check .ant-checkbox-inner {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px
+}
+
+.nz-circle-check .ant-checkbox-checked .ant-checkbox-inner::after {
+  margin-left: 3px;
+  width: 7.5px;
+  height: 15px;
+  margin-top: -2px;
+  border-top: 0;
+  border-left: 0;
+}
+
+// fin check circulo
+
+// nz-typography Letras, texto, span
+.ant-typography {
+  color: inherit;
+
+  &:is(h1, h2, h3, h4, h5, h6, span):not(.ant-typography-danger) {
+    color: #484848;
+  }
+
+  &:is(.ant-typography-secondary) {
+    opacity: 0.5;
+  }
+
+  &:is(span) {
+    font-size: 14px !important;
+  }
+
+  // Tamaños de letras:
+  &:is(.text-2xs) {
+    font-size: 9px !important;
+  }
+
+  font-family: $main-font !important;
+}
+
+.ant-typography h1, .ant-typography h2, .ant-typography h3, .ant-typography h4,
+.ant-typography h5, .ant-typography h6, h1.ant-typography, h2.ant-typography,
+h3.ant-typography, h4.ant-typography, h5.ant-typography, h6.ant-typography {
+  margin-bottom: 0.3em;
+  margin-top: 0 !important;
+}
+
+.ant-typography a {
+  color: $color-primario-1;
+
+  &:hover {
+    color: $color-primario-2;
+  }
+
+  &:focus {
+    color: $color-primario-1;
+  }
+}
+
+// nz-text-edit
+nz-text-edit > button, nz-text-copy > button {
+  float: right;
+  color: $color-primario-1 !important;
+  display: flex;
+}
+
+// Fin de letras
+
+// button, botones, ant-btn start
+// nz-button/ant-btn/button
+.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  justify-content: center;
+
+  &:not(.ant-btn-circle, .ant-btn-round) {
+    border-radius: 5px;
+  }
+}
+
+.ant-btn-link {
+  color: inherit;
+
+  &:hover, &:hover u {
+    color: $color-primario-1;
+  }
+
+  &:focus {
+    color: inherit;
+  }
+}
+
+.ant-btn-text {
+  &:not([disabled]):hover {
+    background: rgb(0, 0, 0, 0.05);
+  }
+}
+
+.ant-btn-primary {
+  background: $color-primario-1;
+
+  &:not([disabled]):hover {
+    background: $color-primario-1-disabled;
+  }
+
+  &:focus {
+    background: $color-primario-1;
+  }
+}
+
+button[nz-button].ant-btn {
+  &:is([nztype=default]) {
+
+    &:is(:not(:disabled)) {
+      border: none;
+      color: inherit;
+      background-color: #EEEDEF;
+
+      &:hover {
+        background-color: #20D2B2;
+        color: white;
+      }
+    }
+  }
+}
+
+.ant-btn-text:not([disabled]).ant-btn-icon-only:hover,
+.white-content .ant-btn[nztype="text"]:not([ng-reflect-disabled="true"]).ant-btn-circle:hover,
+.ant-btn-active:not(:hover) {
+  &, & u, & span, & strong {
+    background: #20D2B20f !important;
+    color: $color-primario-1;
+    fill: $color-primario-1;
+    border-color: $color-primario-1 !important;
+  }
+
+  & span:not( svg) {
+    background: transparent;
+    color: $color-primario-1;
+  }
+}
+
+.ant-modal-footer .ant-btn:not([ng-reflect-disabled="true"]):not(.ant-btn-primary):hover {
+  color: $color-primario-1;
+}
+
+.image-card-gallery .ant-btn-circle:not([nz-tooltip="Destacado"]):not([nz-tooltip="Favorito"]) {
+  background-color: #ffffff88;
+
+  &:hover {
+    background-color: #e6e6e6;
+  }
+}
+
+
+// ant-btn end
+
+// start ant-input/ant-select
+// Se remueve el icono de cerrar y se amplia para q coon dar click sobre el texto lo cierre
+.ant-select-multiple .ant-select-selection-item-remove {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+
+  i {
+    visibility: hidden;
+  }
+}
+
+.ant-select-multiple .ant-select-selection-item {
+  color: $color-primario-1;
+  border-radius: 6px;
+  border: solid 1px $color-primario-1;
+}
+
+.ant-input-search .ant-input:focus {
+  border-color: $color-primario-1;
+}
+
+textarea.ant-input {
+  border-radius: 10px;
+
+  &:focus {
+    box-shadow: 0 0 0 1px $color-primario-1-disabled;
+    border-color: $color-primario-1;
+  }
+
+  &:hover {
+    border-color: $color-primario-1;
+  }
+}
+
+// Para compensar por el px del width q no afecta al alto total del select pero si a los input
+.ant-input, .ant-input-number {
+  margin-top: 2px;
+}
+
+input.ant-input, .ant-input-number, .ant-select, .ant-picker {
+  border: none;
+  box-shadow: none;
+  width: 100%;
+
+  &:focus, &.ant-select-focused, &.ant-input-number-focused, &.ant-picker-focused {
+    box-shadow: 0 1px 1.5px 0 $color-primario-1-disabled;
+    border-bottom: 1px solid $color-primario-1;
+  }
+
+  &:hover:not([disabled], .ant-select-disabled, .ant-input-number-disabled) {
+    border-bottom: 1px solid $color-primario-1 !important;
+  }
+
+  &:hover:has(.ant-select-disabled, [disabled]) {
+    border-color: #d9d9d9;
+  }
+
+  border-bottom: 1px solid #bbb9b9;
+}
+
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):focus,
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: $color-primario-1;
+}
+
+.ant-select-selector {
+  border: none !important;
+  box-shadow: none !important;
+  font-family: $main-font !important;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: $color-primario-1-disabled;
+}
+
+.ant-input-number-input {
+  text-align: right;
+  padding: 0 0 0 11px;
+}
+
+.ant-input-number-handler-wrap {
+  right: auto;
+  left: 0;
+}
+
+.ant-input-affix-wrapper-focused, .ant-input-affix-wrapper:focus {
+  border-color: $color-primario-1;
+}
+
+// ant-input/ant-select end
+
+// start ant-icon
+.nz-icon-xs svg {
+  height: 10px;
+  width: 10px;
+}
+
+.nz-icon-sm svg {
+  height: 15px;
+  width: 15px;
+}
+
+.nz-icon-md svg {
+  height: 18px;
+  width: 18px;
+}
+
+.nz-icon svg {
+  height: 20px;
+  width: 20px;
+}
+
+.nz-icon-lg svg {
+  height: 25px;
+  width: 25px;
+}
+
+.nz-icon-xl svg {
+  height: 30px;
+  width: 30px;
+}
+
+.nz-icon-xxl svg {
+  height: 40px;
+  width: 40px;
+}
+
+// ant-icon end
+
+// radio button toggle
+.ant-radio-button-wrapper {
+  border: 1px solid #ccc;
+  box-shadow: rgb(0 0 0 / 12%) 0 6px 16px;
+
+  &:hover:is(:not(.ant-radio-button-wrapper-disabled)) {
+    border-color: rgb(32, 210, 178, 0.7);
+    color: rgb(32, 210, 178, 0.7);
+  }
+
+  &:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+  &:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  &:not(:first-child):before {
+    display: none;
+  }
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background: $color-primario-1;
+  border-color: $color-primario-1;
+
+  &:hover {
+    background-color: rgb(32, 210, 178, 0.7);
+    border-color: rgb(32, 210, 178, 0.7);
+  }
+}
+
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  border-color: $color-primario-1;
+  color: $color-primario-1;
+
+  &:hover {
+    border-color: rgb(32, 210, 178, 0.7);
+    color: rgb(32, 210, 178, 0.7);
+  }
+
+  &:first-child {
+    border-color: $color-primario-1 !important;
+    //color: $color-primario-1;
+  }
+}
+
+.ant-radio-button-wrapper-disabled:hover {
+  cursor: not-allowed;
+}
+
+// fin radio button toggle
+
+// start ant-menu, ant-menu-item
+.ant-menu:not(.ant-menu-sub) {
+  border-right: none;
+  width: 100%;
+  // NOTA: Set el max-height inline de acuerdo con la pagina en la q se esta
+  height: fit-content;
+
+  &:is(.ant-menu-inline-collapsed) {
+    overflow: hidden;
+  }
+
+  &:is(:not(.ant-menu-inline-collapsed)) {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .anticon + span {
+    font-family: "Work Sans", sans-serif;
+  }
+
+  .ant-menu-item, .ant-menu-item-icon, .ant-menu-submenu-title {
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid #A6B2B2;
+    min-height: $ant-menu-item-h;
+
+    &:after {
+      border-right: 3px solid $color-primario-1 !important;
+    }
+  }
+
+  .ant-menu-submenu {
+    &.ant-menu-submenu-open {
+      color: $color-primario-1;
+    }
+
+    .ant-menu-sub {
+
+      &.ant-menu-inline {
+        background-color: #f6f8f4;
+      }
+    }
+  }
+
+}
+
+// start ant-menu-inline
+// start menu-item
+.ant-menu-item-active, .ant-menu-item-selected, .ant-menu-item-selected a,
+.ant-menu-item-selected a:hover, .ant-menu-item:hover,
+.ant-menu-item > .ant-badge a:hover, .ant-menu-submenu-active,
+.ant-menu-submenu-title:hover, .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+  color: $color-primario-1;
+}
+
+.ant-menu-item::after {
+  border-right: 3px solid $color-primario-1;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #fff;
+}
+
+.ant-menu-submenu-title, .ant-menu-submenu-title .anticon, {
+  &:hover, &:active {
+    color: $color-primario-1;
+  }
+}
+
+// menu-item end
+
+
+//tablas start
+.ant-table.ant-table-small .ant-table-footer, .ant-table.ant-table-small .ant-table-tbody > tr > td,
+.ant-table.ant-table-small .ant-table-thead > tr > th, .ant-table.ant-table-small .ant-table-title,
+.ant-table.ant-table-small tfoot > tr > td, .ant-table.ant-table-small tfoot > tr > th {
+  padding: 5px;
+}
+
+.ant-table-thead > tr > th {
+  padding: 5px;
+}
+
+.alto-fila {
+  height: 48px;
+}
+
+.ant-table table, .ant-table.ant-table-small {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  // para compensar una fila fantasma q crea ng-zorro al empezar
+  line-height: 1;
+
+  & th {
+    font-size: 13.2px;
+  }
+
+  & tr {
+    font-size: 12px;
+  }
+}
+
+.ant-table-measure-now {
+  height: 0 !important;
+}
+
+.ant-table-column-sorters {
+  padding: 0 !important;
+}
+
+.ant-table .ant-table-thead > tr > th {
+  background-color: $table-header-color;
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: $table-row-hover-color;
+  border-radius: 0;
+}
+
+.ant-table-header, .ant-table-body {
+  overflow-y: hidden !important;
+}
+
+.ant-table-row-expand-icon {
+  &:focus, &:hover {
+    color: $color-primario-1;
+  }
+}
+
+//filtros con icono de lupa
+.ant-table-filter-trigger-container {
+  background: none !important;
+  margin-right: 10px;
+}
+
+.ant-table-filter-dropdown {
+  border-radius: 10px;
+  background: gainsboro;
+  padding: 10px;
+  width: 200px;
+}
+
+// Dentro de tabla la paginacion
+.ant-table-pagination, .ant-pagination {
+  justify-content: start;
+
+  li {
+    border: none !important;
+
+    &:is(.ant-pagination-item-active) a {
+      color: white !important;
+      transition: background-color 500ms ease-in;
+      background-color: $color-primario-1;
+      border-radius: 10px;
+    }
+
+    &:hover:is(:not(.ant-pagination-disabled)) {
+      a, .anticon {
+        color: $color-primario-1;
+      }
+    }
+
+    button {
+      border: none !important;
+
+      i, span {
+        vertical-align: text-top;
+      }
+    }
+  }
+
+  nz-select.ant-pagination-options-size-changer > .ant-select-selector {
+    background: none;
+  }
+}
+
+// header
+nz-table-sorters {
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+//tablas end
+
+// Drawers start
+.ant-drawer .ant-drawer-content {
+  overflow: hidden;
+}
+
+// drawers end
+
+// date-picker
+.ant-picker-header-year-btn.ng-star-inserted:hover {
+  color: $color-primario-1;
+}
+
+.ant-picker-header-decade-btn.ng-star-inserted:hover {
+  color: $color-primario-1;
+}
+
+.ant-picker-header-year-btn:hover {
+  color: $color-primario-1;
+}
+
+.ant-picker-cell-inner:hover, .ant-picker-today-btn, .ant-picker-today-btn:hover,
+.ant-picker-header-view button:hover {
+  color: $color-primario-1;
+}
+
+.ant-picker-cell-inner:active {
+  background-color: $color-primario-1 !important;
+}
+
+.ant-picker-cell-selected .ant-picker-cell-inner {
+  background-color: $color-primario-1 !important;
+  border-radius: 4px;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner:before {
+  border-color: $color-primario-1;
+}
+
+// date picker fin
+
+// Tabs
+.ant-tabs-tab {
+  &:hover, :focus {
+    color: $color-primario-1;
+  }
+
+  &.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: $color-primario-1;
+  }
+
+  .anticon {
+    display: flow;
+  }
+
+}
+
+.ant-tabs-ink-bar {
+  background: $color-primario-1;
+}
+
+
+//listas desplegables e inputs
+.ant-select-item-option-content, .ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-item {
+  font-family: $main-font !important;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
+  color: #FFFFFF;
+}
+
+// preview imagenes
+.cdk-overlay-container {
+  z-index: 2000;
+}
+
+//skeleton
+.ant-skeleton.ant-skeleton-active .ant-skeleton-image {
+  width: 100%;
+  height: 100%;
+}
+
+//popover
+.ant-popover-inner-content {
+  //max-width: 250px;
+  padding: 0.8vmax;
+  border-radius: 5px;
+
+  .ant-btn:hover {
+    color: black;
+  }
+
+  .ant-btn-primary:hover {
+    color: white;
+  }
+
+  .ant-popover-buttons button {
+    border-radius: 50px;
+  }
+}
+
+.ant-popover-message-title {
+  white-space: break-spaces;
+}
+
+// tags
+.ant-tag {
+  background-color: rgb(32 210 178 / 20%);
+  color: $color-primario-1;
+  border-color: $color-primario-1;
+  border-radius: 6px;
+  display: flex;
+  align-items: baseline;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.ant-tag-close-icon:hover {
+  color: rgb(32 210 178);
+}
+
+// notificaciones
+.ant-notification-notice-with-icon {
+  font-family: "Work Sans", sans-serif !important;
+  overflow-wrap: break-word;
+  font-weight: 600;
+
+  .ant-notification-notice-message {
+    line-height: 1.4;
+    color: #3f3f3f;
+    font-size: 20px;
+  }
+
+  .ant-notification-notice-description {
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .45);
+    font-size: 16px;
+  }
+}
+
+// virtual scroll
+.cdk-virtual-scroll-content-wrapper {
+  //noinspection CssInvalidPropertyValue
+  width: -webkit-fill-available;
+  padding-right: 0.5vw;
+}
+
+// collapse
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  font-family: "Work Sans", sans-serif !important;
+  color: #4f4f4f;
+  font-weight: 600;
+
+  i {
+    font-style: normal;
+    animation: fadeIn 0.5s;
+  }
+}
+
+// collapse show-arrow = false
+.ant-collapse > .ant-collapse-item[ng-reflect-nz-show-arrow="false"] > .ant-collapse-header {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .ant-collapse-extra {
+    margin-left: auto;
+  }
+}
+
+// formularios
+.ant-form-item-children-icon {
+  left: 20px;
+}
+
+// nz-card/tarjetas
+.ant-card {
+  transition: width .2s;
+}
+
+.ant-card:not(.ant-card-contain-grid,.bandera) {
+  border-radius: 10px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.ant-card:is(.bandera) {
+  border-radius: 0 0 20px;
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.25);
+
+  .ant-card-body {
+    padding: 0 0 15px 15px;
+  }
+}
+
+.ant-card-grid {
+  border: none;
+  box-shadow: none;
+}
+
+.ant-card-body {
+  height: 100%;
+}
+
+// nz-card/tarjetas end
+
+// crear cartera
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
+  background: #20D2B2;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+  color: #20D2B2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #fff;
+  border-color: #479E84;
+}
+
+.ant-steps-item-process .ant-steps-item-icon {
+  background-color: #fff;
+  border-color: #479E84;
+}
+
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after {
+  background-color: #20D2B2;
+}
+
+.ant-modal-title {
+  font-family: "Montserrat", sans-serif;
+}
+
+.ant-modal-content {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.ant-modal-footer {
+  padding-bottom: 0;
+  padding-top: 25px;
+}
+
+.ant-tag {
+  width: fit-content;
+  margin-top: 7px;
+}
+
+.ant-upload.ant-upload-drag:not(.ant-upload-disabled) {
+  svg {
+    color: $color-primario-1;
+  }
+
+  &:hover {
+    border-color: $color-primario-1;
+
+    svg {
+      color: $color-primario-1;
+    }
+  }
+
+}
+
+// Start slider
+.ant-slider {
+  &.ant-slider-disabled {
+    .ant-slider-handle {
+      background-color: #A6B2B2;
+    }
+  }
+
+  .ant-slider-rail {
+    height: 2px;
+    background-color: #A6B2B2A6;
+  }
+
+  .ant-slider-track {
+    background-color: $color-primario-2;
+    height: 2px;
+  }
+
+  .ant-slider-handle {
+    width: 10px;
+    height: 10px;
+    border: none;
+    background-color: $color-primario-2;
+  }
+
+  &:hover:not(.ant-slider-disabled) {
+    .ant-slider-rail {
+      background-color: #A6B2B2;
+    }
+
+    .ant-slider-track, .ant-slider-handle {
+      background-color: $color-primario-1;
+    }
+  }
+
+  .ant-slider-dot {
+    visibility: hidden;
+  }
+
+  .ant-slider-mark-text {
+    font-size: 12px;
+    color: #484848;
+    opacity: 0.5;
+    font-weight: 450;
+    font-family: $main-font;
+  }
+}
+
+// End slider
+
+
+// start switch ant-switch
+.ant-switch {
+  min-width: 40px;
+  width: 40px;
+  height: 18px;
+
+  .ant-switch-handle {
+    width: 14px;
+    height: 14px;
+  }
+
+  &.ant-switch-checked {
+    background-color: #20d2b2;
+
+    .ant-switch-handle {
+      left: calc(100% - 14px - 2px);
+    }
+  }
+}
+
+// end switch
+
+
+// start nz-sider
+nz-layout.ant-layout {
+  position: relative;
+
+  .ant-layout-sider {
+    box-shadow: 4px 1px 6px #0d0a2c40;
+    height: fit-content;
+    top: $navbar-height;
+    position: sticky;
+    display: flex;
+    flex-direction: column-reverse;
+
+    .ant-layout-sider-trigger {
+      width: 100% !important;
+      border-bottom: 0.5px solid #A6B2B2;
+      height: $ant-menu-item-h;
+      position: relative;
+    }
+  }
+}
+
+// end nz-sider
+
+
+// start ant-progress
+.ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+  stroke: #20d2b2;
+  stroke-width: 8px;
+}
+
+
+.ant-progress-circle .ant-progress-inner {
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 12px !important;
+  font-weight: 600;
+  font-family: Montserrat, serif;
+}
+
+//end ant-progress
+
+// start ant-tree
+.ant-tree .ant-tree-treenode {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 0 4px;
+  outline: 0;
+  font-size: 15px;
+  font-family: Montserrat, serif;
+  font-weight: 500;
+}
+
+.ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background: transparent;
+  border: 1px solid #20D2B2;
+  color: #222222;
+  border-radius: 4px;
+}
+
+.ant-tree .ant-tree-node-content-wrapper:hover {
+  background-color: #FFFFFF;
+}
+
+// end ant-tree
+
+// start ant-rate
+.ant-rate-star {
+  color: #F49A19;
+}
+
+// end ant-rate

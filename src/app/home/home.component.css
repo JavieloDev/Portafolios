@@ -1,0 +1,302 @@
+
+body {
+  background-image: url('/assets/lauren-mancke-aOC7TSLb1o8-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Poppins', serif;
+  font-weight:300;
+  font-size:50px;
+  padding-top:30vh;
+  height:100vh;
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.foto-perfil{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 6%;
+  margin-bottom: 3px;
+}
+
+.imagen{
+  border-radius: 50%;
+  width: 12%;
+  height: 150px;
+  border: 1px solid black;
+}
+
+.nombre{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}
+
+.box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  right: 3%;
+}
+.box .title {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+.box .title .block {
+  width: 0%;
+  height: inherit;
+  background: #181816;
+  position: absolute;
+  animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+  display: flex;
+}
+.box .title h1 {
+   font-family: 'Poppins', serif;
+  color: #000;
+  font-size: 50px;
+  -webkit-animation: mainFadeIn 2s forwards;
+  -o-animation: mainFadeIn 2s forwards;
+  animation: mainFadeIn 2s forwards;
+  animation-delay: 1.6s;
+  opacity: 0;
+  display: flex;
+  align-items: baseline;
+  position: relative;
+}
+ .box .title h1 span {
+  width: 0;
+  height: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #0c0c0b;
+  -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+  animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+  animation-delay: 2s;
+  margin-left: 5px;
+  margin-top: -10px;
+  position: absolute;
+  bottom: 13px;
+  right: -12px;
+}
+ .box .role {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin-top: -10px;
+}
+ .box .role .block {
+  width: 0;
+  height: inherit;
+  background: rgba(33, 33, 33, 0.2);
+  position: absolute;
+  animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+  animation-delay: 2s;
+  display: flex;
+}
+.box .role p {
+  animation: secFadeIn 2s forwards;
+  animation-delay: 3.2s;
+  opacity: 0;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+  color: #000000;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.frase {
+  margin-top: 25px;
+  margin-right: 50px;
+  font-size: 37px;
+  font-style: italic;
+  font-family: 'Georgia', serif;
+  color: #333;
+  line-height: 1.5;
+  text-align: right;
+  quotes: "“" "”" "‘" "’";
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.frase::before {
+  content: open-quote;
+  font-size: 35px;
+  color: #999;
+  margin-right: 5px;
+}
+
+.frase::after {
+  content: close-quote;
+  font-size: 35px;
+  color: #999;
+  margin-left: 5px;
+}
+
+/*--------------------------------Socials----------------------------------*/
+.socials {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+}
+
+.social-icon {
+  margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/*------------------------------Responsive----------------------------------*/
+@media (max-width: 480px) {
+  .foto-perfil{
+    position: relative;
+    bottom: -61px;
+
+    margin-bottom: 0;
+  }
+  .imagen{
+    width: 23%;
+    height: 103px;
+  }
+
+  .nombre{
+    width: 90%;
+    position: relative;
+    left: 54px;
+    bottom: -68px;
+  }
+
+  .socials{
+    width: 10%;
+  }
+
+  .box .title {
+    width: 100%;
+    height: 70px;
+  }
+  .box .title h1 {
+    font-size: 37px;
+  }
+
+  .frase {
+    margin-top: 0;
+    margin-right: 30px;
+    font-size: 20px;
+  }
+
+}
+
+
+/*------------------------------Animaciones---------------------------------*/
+@keyframes mainBlock {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@keyframes secBlock {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes popIn {
+  0% {
+    width: 0;
+    height: 0;
+    background: #0e0d0d;
+    border: 0 solid #ddd;
+    opacity: 0;
+  }
+  50% {
+    width: 10px;
+    height: 10px;
+    background: #0a0a0a;
+    opacity: 1;
+    bottom: 45px;
+  }
+  65% {
+    height: 7px;
+    bottom: 0;
+    width: 15px;
+  }
+  80% {
+    width: 10px;
+    height: 10px;
+    bottom: 20px;
+  }
+  100% {
+    width: 7px;
+    height: 7px;
+    background: #0a0a0a;
+    border: 0 solid #222;
+    bottom: 13px;
+  }
+}
+@keyframes secFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

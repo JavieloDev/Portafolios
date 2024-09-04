@@ -1,0 +1,158 @@
+html, body {
+  background-image: url('/assets/georgie-cobbs-muOHbrFGEQY-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* Para evitar el scroll horizontal */
+}
+
+.about {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  width: 90%;
+  margin: 60px auto;
+  padding: 20px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  }
+  h1 svg{
+  animation: bounce 1s infinite;
+  transform-origin: center;
+}
+/*-------------------- Perfil --------------------*/
+.profile-container, .education-container {
+  padding: 20px;
+  margin-bottom: 20px;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.profile-container h1, .education-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+/*----------- Educación---------------- */
+.education-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.education-item {
+  flex: 1 1 48%;
+  margin: 10px 10px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.education-item:hover {
+  transform: scale(1.1);
+}
+
+.education-item h5, .education-item h6 {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.education-item span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+/*----------------------------- Responsive ------------------------------*/
+/*--------Pantallas medias------------*/
+@media (max-width: 768px) {
+  .education-section {
+    flex-direction: column;
+  }
+
+  .education-item {
+    flex: 1 1 100%;
+  }
+
+  .profile-container, .education-container {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .profile-container p {
+    font-size: 14px;
+  }
+}
+/*--------Pantallas pequeñas------------*/
+@media (max-width: 480px) {
+  html, body {
+    height: auto; /* Deja que el contenido determine la altura */
+    min-height: 100vh; /* Asegura que el fondo cubra al menos toda la pantalla */
+    overflow-y: auto; /* Permite el scroll vertical si el contenido es más alto que la pantalla */
+  }
+
+  .about {
+    width: 95%;
+    height: auto;
+    max-width: 100%;
+    margin-top: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .profile-container p {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .education-item {
+    padding: 10px;
+    margin: 5px 0;
+  }
+
+  .education-item p{
+    font-weight: 600;
+  }
+}
+
+
+
+
+
+/*-------------------Animaciones-------------------------------*/
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
