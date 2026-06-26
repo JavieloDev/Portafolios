@@ -1,85 +1,55 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {NzProgressComponent, NzProgressFormatter} from "ng-zorro-antd/progress";
-import {NgForOf} from "@angular/common";
-import { AgCharts } from 'ag-charts-angular';
-import {AgChartOptions } from "ag-charts-community";
-import {AgBarSeriesOptions, AgDonutSeriesOptions} from "ag-charts-enterprise";
-
-
-
+import {Component, HostListener, OnInit, ViewEncapsulation} from '@angular/core';
+import {NgClass, NgForOf, NgSwitch, NgSwitchCase} from "@angular/common";
 
 @Component({
   selector: 'app-skills',
   standalone: true,
   imports: [
-    NzProgressComponent,
+    NgClass,
     NgForOf,
-    AgCharts
+    NgSwitchCase,
+    NgSwitch
   ],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.css',
   encapsulation: ViewEncapsulation.None
 })
-export class SkillsComponent implements OnInit{
-  public chartOptions: AgChartOptions;
-  public chartOptions1: AgChartOptions;
+export class SkillsComponent implements OnInit {
 
+  animating = false;
 
-  constructor() {
-    this.chartOptions = {
-      // Data: Data to be displayed in the chart
-      data: [
-        { name: 'HTML', percent: 0, finalPercent: 90 },
-        { name: 'CSS', percent: 0, finalPercent: 90 },
-        { name: 'Java', percent: 0, finalPercent: 90 },
-        { name: 'JavaScript', percent: 0, finalPercent: 85 },
-        { name: 'TypeScript', percent: 0, finalPercent: 85 },
-        { name: 'Boostrap', percent: 0, finalPercent: 80 },
-        { name: 'Angular', percent: 0, finalPercent: 80 },
-        { name: 'SQL', percent: 0, finalPercent: 75 },
-        { name: 'Node JS', percent: 0, finalPercent: 65 },
-        { name: 'React JS', percent: 0, finalPercent: 50 },
-        { name: 'Python', percent: 0, finalPercent: 20 },
-      ],
-      // Series: Defines which chart type and data to use
-      series: [{
-        type: 'bar',
-        xKey: 'name',  // Define the key for the angle (values of the series)
-        yKey: 'finalPercent',  // Define the key for the labels (names of the series)
-        fill:'linear-gradient(to right, #23074d, #cc5333)',
-      } as AgBarSeriesOptions]
-    };
-    this.chartOptions1 = {
-      // Data: Data to be displayed in the chart
-      data: [
-        { name: 'Python', finalPercent: 20 },
-        { name: 'React JS', finalPercent: 50 },
-        { name: 'Node JS', finalPercent: 65 },
-        { name: 'SQL', finalPercent: 75 },
-        { name: 'Angular', finalPercent: 80 },
-        { name: 'Boostrap', finalPercent: 80 },
-        { name: 'JavaScript', finalPercent: 85 },
-        { name: 'TypeScript', finalPercent: 85 },
-        { name: 'HTML', finalPercent: 90 },
-        { name: 'CSS', finalPercent: 90 },
-        { name: 'Java', finalPercent: 90 },
-      ],
-      series: [{
-        type: 'donut',
-        angleKey: 'finalPercent',
-        labelKey: 'name',
-        innerRadiusRatio: 0.4,
-        outerRadiusOffset: 0,
-        calloutLabelKey: 'name',
-        label: {
-          enabled: true,
-          fontSize: 14,
-          color: '#333',
-        }
-      } as AgDonutSeriesOptions]
-    };
+  softSkills = [
+    {id: 'web-design', name: 'Web Design'},
+    {id: 'front-end', name: 'Front End'},
+    {id: 'back-end', name: 'Back End'},
+    {id: 'design-thinking', name: 'Design Thinking'},
+    {id: 'problem-solving', name: 'Problem Solving'},
+    {id: 'computer-literacy', name: 'Computer Literacy'},
+  ];
+
+  techSkills = [
+    {name: 'Angular', level: 90, color: 'bg-gradient-to-r from-indigo-500 to-violet-500'},
+    {name: 'TypeScript', level: 85, color: 'bg-gradient-to-r from-indigo-400 to-indigo-600'},
+    {name: 'Tailwind', level: 88, color: 'bg-gradient-to-r from-sky-400 to-indigo-500'},
+    {name: 'React', level: 70, color: 'bg-gradient-to-r from-violet-400 to-purple-600'},
+    {name: 'SQL / DB', level: 75, color: 'bg-gradient-to-r from-violet-500 to-purple-500'},
+    {name: 'Electron', level: 65, color: 'bg-gradient-to-r from-indigo-300 to-violet-400'},
+    {name: 'Node.js', level: 60, color: 'bg-gradient-to-r from-indigo-400 to-violet-500'},
+  ];
+
+  tags = [
+    'Angular', 'TypeScript', 'React', 'Electron',
+    'Tailwind CSS', 'Node.js', 'SQL', 'Git',
+    'REST APIs', 'Figma', 'HTML5', 'CSS3',
+    'SCSS', 'RxJS'
+  ];
+
+  ngOnInit(): void {
+    setTimeout(() => (this.animating = true), 400);
   }
 
-  ngOnInit() {}
-
+  @HostListener('window:scroll')
+  onScroll(): void {
+    if (!this.animating) this.animating = true;
+  }
 }

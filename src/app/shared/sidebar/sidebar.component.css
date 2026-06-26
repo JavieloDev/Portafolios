@@ -1,24 +1,26 @@
-
-ul li{
-  font-family: 'Georgia', serif;
-  font-size: 15px;
-  font-weight: bold;
-
+/* Estado activo — sidebar desktop */
+.nav-link {
+  color: rgba(255, 255, 255, 0.35);
+}
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
+}
+.nav-link.nav-active {
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.08);
+}
+.nav-link.nav-active .active-dot {
+  opacity: 1;
 }
 
-.side ul {
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo blanco semitransparente */
-  backdrop-filter: blur(5px); /* Aplicar desenfoque de fondo */
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  border: none;
-  color: #b9b7b7;
+/* Estado activo — bottom nav móvil */
+.mobile-link {
+  color: rgba(255, 255, 255, 0.30);
 }
-
-
+.mobile-link:hover {
+  color: rgba(255, 255, 255, 0.70);
+}
+.mobile-link.mobile-active {
+  color: #818cf8;
+}
