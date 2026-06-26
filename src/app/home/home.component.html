@@ -1,55 +1,99 @@
+<section class="relative min-h-screen bg-[#0a0a0a] flex items-center overflow-hidden px-6 md:px-16">
 
+  <!-- Fondo decorativo -->
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_50%,rgba(99,102,241,0.12),transparent)] pointer-events-none"></div>
+  <div
+    class="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:60px_60px] pointer-events-none"></div>
 
-<div class="home-container">
-  <div class="foto-perfil">
-    <img
-      nz-image nzSrc="assets/photo1711825513 (1).jpeg"
-      class="imagen"
-      alt="perfil"
-    >
-  </div>
+  <div class="relative z-10 w-full max-w-2xl mx-auto py-20 flex flex-col gap-0">
 
-  <div class="">
-    <div class="nombre ">
-      <div class="box" style=" margin-right:30px ">
-        <div class="title">
-          <span class="block"></span>
-          <h1>Javier Alejandro<span></span></h1>
-        </div>
-        <div class="role">
-          <div class="block"></div>
-          <p>Web Developer</p>
-        </div>
+    <!-- Top: avatar + estado disponible -->
+    <div class="flex items-center gap-4 mb-10">
+      <div class="relative flex-shrink-0">
+        <img src="assets/photo1711825513 (1).jpeg" alt="Javier Alejandro"
+             class="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-500/30">
       </div>
-
-      <p class="frase">
-        Convierto tus ideas en experiencias <br>
-        digitales inolvidables.
-      </p>
-
+      <div>
+        <p class="text-sm font-medium text-white/90 tracking-tight">Javier Alejandro</p>
+        <p class="text-xs text-white/40 uppercase tracking-widest">Web Developer</p>
+      </div>
+      <div
+        class="ml-auto flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/25 rounded-full px-3 py-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs text-emerald-400 font-medium tracking-wide">Disponible</span>
+      </div>
     </div>
 
-    <div class="socials ">
-      <a href="https://twitter.com/yourprofile" class="social-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20" height="20">
-          <path d="M31.202,25l13.63-20.445c0.204-0.307,0.224-0.701,0.05-1.026S44.369,3,44,3h-7.34c-0.327,0-0.634,0.16-0.821,0.429L25,19 L14.16,3.429C13.973,3.16,13.667,3,13.34,3H6C5.631,3,5.292,3.203,5.118,3.528s-0.154,0.72,0.05,1.026L18.798,25L5.168,45.445 c-0.204,0.307-0.224,0.701-0.05,1.026S5.631,47,6,47h7.34c0.327,0,0.634-0.16,0.821-0.429L25,31l10.84,15.571 C36.027,46.84,36.333,47,36.66,47H44c0.369,0,0.708-0.203,0.882-0.528s0.154-0.72-0.05-1.026L31.202,25z" fill="#000000" />
+    <!-- Titular -->
+    <h1
+      class="font-['Inter'] font-light text-[clamp(2.4rem,6vw,3.6rem)] text-white leading-[1.1] tracking-[-0.03em] mb-4">
+      Convierto ideas en<br>
+      <em
+        class="font-['Playfair_Display'] not-italic font-normal bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent italic">experiencias
+        digitales</em>
+    </h1>
+
+    <!-- Subtítulo -->
+    <p class="text-[15px] text-white/40 font-light leading-relaxed max-w-md mb-8 tracking-wide">
+      Desarrollo aplicaciones web modernas que conectan con las personas — rápidas, elegantes y construidas para
+      escalar.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex gap-3 flex-wrap items-center mb-10">
+      <a href="#proyectos"
+         class="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-[13px] font-medium px-5 py-2.5 rounded-lg transition-colors">
+        Ver proyectos
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
         </svg>
       </a>
-      <a href="https://facebook.com/yourprofile" class="social-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="20" height="20">
-          <path d="M21.125 0L4.875 0C2.183594 0 0 2.183594 0 4.875L0 21.125C0 23.816406 2.183594 26 4.875 26L21.125 26C23.816406 26 26 23.816406 26 21.125L26 4.875C26 2.183594 23.816406 0 21.125 0 Z M 20.464844 14.003906L18.03125 14.003906L18.03125 23.007813L13.96875 23.007813L13.96875 14.003906L12.390625 14.003906L12.390625 10.96875L13.96875 10.96875L13.96875 9.035156C13.96875 6.503906 15.019531 5 18.007813 5L21.03125 5L21.03125 8.023438L19.273438 8.023438C18.113281 8.023438 18.035156 8.453125 18.035156 9.265625L18.03125 10.96875L20.796875 10.96875Z" fill="#000000" />
-        </svg>
+      <a href="#contacto"
+         class="inline-flex items-center gap-1.5 text-white/55 hover:text-white/90 text-[13px] px-5 py-2.5 rounded-lg border border-white/10 hover:border-white/25 transition-all">
+        Contáctame
       </a>
-      <a href="https://linkedin.com/in/yourprofile" class="social-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20" height="20">
-          <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z" fill="#000000" />
-        </svg>
-      </a>
+    </div>
+
+    <!-- Divisor -->
+    <div class="h-px bg-white/[0.07] mb-6"></div>
+
+    <!-- Socials + stack -->
+    <div class="flex items-center justify-between flex-wrap gap-4">
+      <div class="flex gap-2">
+        <!-- Twitter / X -->
+        <a href="https://twitter.com/yourprofile" aria-label="Twitter"
+           class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-indigo-500/15 hover:border-indigo-400/40 transition-all group">
+          <svg class="w-4 h-4 fill-white/50 group-hover:fill-indigo-400" xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 50 50">
+            <path
+              d="M31.202,25l13.63-20.445c0.204-0.307,0.224-0.701,0.05-1.026S44.369,3,44,3h-7.34c-0.327,0-0.634,0.16-0.821,0.429L25,19L14.16,3.429C13.973,3.16,13.667,3,13.34,3H6C5.631,3,5.292,3.203,5.118,3.528s-0.154,0.72,0.05,1.026L18.798,25L5.168,45.445c-0.204,0.307-0.224,0.701-0.05,1.026S5.631,47,6,47h7.34c0.327,0,0.634-0.16,0.821-0.429L25,31l10.84,15.571C36.027,46.84,36.333,47,36.66,47H44c0.369,0,0.708-0.203,0.882-0.528s0.154-0.72-0.05-1.026L31.202,25z"/>
+          </svg>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://facebook.com/yourprofile" aria-label="Facebook"
+           class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-indigo-500/15 hover:border-indigo-400/40 transition-all group">
+          <svg class="w-4 h-4 fill-white/50 group-hover:fill-indigo-400" xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 26 26">
+            <path
+              d="M21.125,0H4.875C2.184,0,0,2.184,0,4.875v16.25C0,23.816,2.184,26,4.875,26h16.25C23.816,26,26,23.816,26,21.125V4.875C26,2.184,23.816,0,21.125,0z M20.465,14.004h-2.434v9.004h-4.063v-9.004h-1.578V10.969h1.578V9.035c0-2.531,1.051-4.035,4.039-4.035h3.023v3.023h-1.758c-1.16,0-1.238,0.43-1.238,1.242v1.703h2.766L20.465,14.004z"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn"
+           class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-indigo-500/15 hover:border-indigo-400/40 transition-all group">
+          <svg class="w-4 h-4 fill-white/50 group-hover:fill-indigo-400" xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 50 50">
+            <path
+              d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"/>
+          </svg>
+        </a>
+      </div>
     </div>
 
   </div>
-
-
-
-</div>
-
+</section>

@@ -5,7 +5,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './contacto.component.html',
-  styleUrl: './contacto.component.css',
   encapsulation: ViewEncapsulation.None
 })
 export class ContactoComponent {

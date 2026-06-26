@@ -1,22 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { RouterModule} from "@angular/router";
-import {NzMenuDirective, NzMenuItemComponent} from "ng-zorro-antd/menu";
-import {NgZorroModule} from '../ng-zorro/ng-zorro.module';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SidebarComponent} from './sidebar/sidebar.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
   declarations: [
     SidebarComponent
   ],
-  exports:[
+  exports: [
     SidebarComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    NgZorroModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}
