@@ -1,0 +1,142 @@
+<!-- ─── Desktop  ─── -->
+<nav
+  class="fixed left-0 top-0 h-full z-50 hidden lg:flex flex-col justify-between px-6 py-10 w-[72px] hover:w-56 transition-all duration-300 ease-in-out bg-[#0a0a0a] border-r border-white/[0.06] group/nav overflow-hidden">
+
+  <div class="flex items-center gap-3 mb-12 shrink-0">
+    <div
+      class="w-9 h-9 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center shrink-0">
+      <span class="text-[13px] font-medium text-indigo-400 tracking-tight">JA</span>
+    </div>
+    <span
+      class="text-[13px] font-light text-white whitespace-nowrap opacity-0 group-hover/nav:!opacity-100 transition-opacity duration-200 delay-100">
+      Javier Alejandro
+    </span>
+  </div>
+
+  <ul class="flex flex-col gap-1 flex-1">
+    @for (item of navItems; track item.id) {
+      <li>
+        <a [routerLink]="item.path"
+           routerLinkActive="nav-active"
+           [routerLinkActiveOptions]="{ exact: item.exact }"
+           (click)="selectedItems(item)"
+           class="relative nav-link w-10 group-hover/nav:w-full flex items-center gap-3 px-2.5 py-2.5 rounded-lg transition-all duration-300 cursor-pointer group/item"
+           [class]="item.id === selectedItem.id
+           ? 'text-indigo-400'
+           : 'text-white/40 hover:text-white/70'">
+
+          <div class="absolute inset-0 rounded-lg transition-all duration-500"
+               [class]="item.id === selectedItem.id
+               ? 'bg-indigo-500/10 scale-100 opacity-100 shadow-[0_0_30px_rgba(99,102,241,0.15)]'
+               : 'scale-90 opacity-0'">
+          </div>
+
+          <div
+            class="absolute inset-0 rounded-lg transition-all duration-300 opacity-0 group-hover/item:opacity-100 bg-white/5">
+          </div>
+
+          <div class="absolute -left-px top-1/2 -translate-y-1/2 w-0.5 h-6 rounded-full transition-all duration-300"
+               [class]="item.id === selectedItem.id
+               ? 'bg-indigo-400 opacity-100 scale-100 shadow-[0_0_15px_rgba(99,102,241,0.5)]'
+               : 'opacity-0 scale-50'">
+          </div>
+
+          <div class="relative z-10 w-5 h-5 shrink-0 flex items-center justify-center transition-all duration-300"
+               [class]="item.id === selectedItem.id
+               ? 'scale-110'
+               : 'scale-100 group-hover/item:scale-105'">
+
+            <svg class="w-[18px] h-[18px] transition-all duration-300"
+                 [class]="item.id === selectedItem.id ? 'w-5 h-5' : 'w-[18px] h-[18px]'"
+                 fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                 [innerHTML]="item.iconSvg | safeHtml">
+            </svg>
+          </div>
+
+          <span
+            class="relative z-10 text-[13px] font-light whitespace-nowrap opacity-0 group-hover/nav:!opacity-100 transition-opacity duration-200 delay-100"
+            [class]="item.id === selectedItem.id ? 'text-indigo-300' : 'text-white'">
+          {{ item.label }}
+        </span>
+
+          <div
+            class="absolute -inset-0.5 rounded-lg opacity-0 group-hover/item:!opacity-100 transition-opacity duration-300 pointer-events-none"
+            [class]="item.id === selectedItem.id
+               ? 'bg-gradient-to-r from-indigo-500/0 via-indigo-500/5 to-indigo-500/0'
+               : 'bg-gradient-to-r from-white/0 via-white/5 to-white/0'">
+          </div>
+        </a>
+      </li>
+    }
+  </ul>
+</nav>
+
+
+<!-- ─── Mobile  ─── -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 lg:hidden">
+
+  <div
+    class="relative bg-[#0a0a0a]/80 backdrop-blur-xl border-t border-white/[0.06] px-2 py-1.5 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+
+    <ul class="flex justify-around items-center relative">
+      @for (item of navItemsMobile; track item.id) {
+        <li class="flex-1 flex justify-center relative">
+
+          <div class="absolute -top-[7px] left-1/2 -translate-x-1/2 z-20 transition-all duration-500"
+               [class]="item.id === selectedItem.id ? 'opacity-100' : 'opacity-0'">
+            <div class="w-12 h-0.5 bg-gradient-to-r from-indigo-400/0 via-indigo-400/60 to-indigo-400/0 rounded-full">
+            </div>
+          </div>
+
+          <a [routerLink]="item.path"
+             routerLinkActive="mobile-active"
+             [routerLinkActiveOptions]="{ exact: item.exact }"
+             (click)="selectedItems(item)"
+             class="relative flex flex-col items-center gap-0.5 py-2 px-1 rounded-xl transition-all duration-300 cursor-pointer group w-full max-w-[64px]"
+             [class]="item.id === selectedItem.id
+             ? 'text-indigo-400'
+             : 'text-white/40 hover:text-white/70'">
+
+            <div class="absolute inset-0 rounded-xl transition-all duration-500"
+                 [class]="item.id === selectedItem.id
+                 ? 'bg-indigo-500/10 scale-100 opacity-100 shadow-[0_0_30px_rgba(99,102,241,0.15)]'
+                 : 'scale-90 opacity-0'">
+            </div>
+
+            <div
+              class="absolute inset-0 rounded-xl transition-all duration-300 opacity-0 group-hover:opacity-100 bg-white/5">
+            </div>
+
+            <div class="relative z-10 transition-all duration-300"
+                 [class]="item.id === selectedItem.id
+                 ? 'scale-110 -translate-y-0.5'
+                 : 'scale-100 group-hover:scale-105'">
+
+              <svg class="w-[22px] h-[22px] transition-all duration-300"
+                   [class]="item.id === selectedItem.id ? 'w-6 h-6' : 'w-[22px] h-[22px]'"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="1.5"
+                   viewBox="0 0 24 24"
+                   [innerHTML]="item.iconSvg | safeHtml">
+              </svg>
+            </div>
+
+            <span class="relative z-10 text-[9px] font-light tracking-wide transition-all duration-300"
+                  [class]="item.id === selectedItem.id
+                  ? 'opacity-100 translate-y-0 text-indigo-300'
+                  : 'opacity-0 translate-y-1 group-hover:opacity-70 group-hover:translate-y-0'">
+            {{ item.label }}
+          </span>
+            <div
+              class="absolute -inset-1 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              [class]="item.id === selectedItem.id
+                 ? 'bg-gradient-to-r from-indigo-500/0 via-indigo-500/5 to-indigo-500/0'
+                 : 'bg-gradient-to-r from-white/0 via-white/5 to-white/0'">
+            </div>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>

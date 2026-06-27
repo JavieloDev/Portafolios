@@ -28,20 +28,23 @@ export class SkillsComponent implements OnInit {
   ];
 
   techSkills = [
-    {name: 'Angular', level: 90, color: 'bg-gradient-to-r from-indigo-500 to-violet-500'},
-    {name: 'TypeScript', level: 85, color: 'bg-gradient-to-r from-indigo-400 to-indigo-600'},
+    {name: 'Angular', level: 95, color: 'bg-gradient-to-r from-indigo-500 to-violet-500'},
+    {name: 'TypeScript', level: 90, color: 'bg-gradient-to-r from-indigo-400 to-indigo-600'},
     {name: 'Tailwind', level: 88, color: 'bg-gradient-to-r from-sky-400 to-indigo-500'},
     {name: 'React', level: 70, color: 'bg-gradient-to-r from-violet-400 to-purple-600'},
-    {name: 'SQL / DB', level: 75, color: 'bg-gradient-to-r from-violet-500 to-purple-500'},
+    {name: 'Java', level: 70, color: 'bg-gradient-to-r from-indigo-400 to-violet-500'},
+    {name: 'Node.js', level: 70, color: 'bg-gradient-to-r from-indigo-400 to-violet-500'},
+    {name: 'SQL / DB', level: 65, color: 'bg-gradient-to-r from-violet-500 to-purple-500'},
     {name: 'Electron', level: 65, color: 'bg-gradient-to-r from-indigo-300 to-violet-400'},
-    {name: 'Node.js', level: 60, color: 'bg-gradient-to-r from-indigo-400 to-violet-500'},
+    {name: 'Next.js', level: 35, color: 'bg-gradient-to-r from-indigo-300 to-yellow-400'},
+    {name: 'Python', level: 30, color: 'bg-gradient-to-r from-indigo-400 to-yellow-500'},
   ];
 
   tags = [
-    'Angular', 'TypeScript', 'React', 'Electron',
-    'Tailwind CSS', 'Node.js', 'SQL', 'Git',
-    'REST APIs', 'Figma', 'HTML5', 'CSS3',
-    'SCSS', 'RxJS'
+    'Angular', 'TypeScript', 'Tailwind CSS', 'React',
+    'Java', 'Node.js', 'SQL', 'Electron', 'Next.js',
+    'Python', 'Git', 'REST APIs', 'Figma', 'HTML5', 'CSS3',
+    'SCSS', 'RxJS', 'Postgres SQL', 'Sass', 'SQL Server',
   ];
 
   ngOnInit(): void {

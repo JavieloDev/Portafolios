@@ -1,0 +1,125 @@
+<section class="relative py-20 px-4 md:px-16 bg-[#0a0a0a] overflow-hidden">
+
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_60%,rgba(99,102,241,0.10),transparent)] pointer-events-none"></div>
+  <div
+    class="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:60px_60px] pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto">
+
+    <!-- Header -->
+    <div class="flex flex-col gap-4 mb-12">
+      <div
+        class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-indigo-400/90 font-medium">
+        <span class="w-6 h-px bg-indigo-500/60"></span>
+        Portafolio
+      </div>
+      <h2 class="font-['Inter'] font-light text-[clamp(2rem,5vw,3rem)] text-white leading-[1.1] tracking-[-0.03em]">
+        Proyectos en los que<br>
+        <em
+          class="font-['Playfair_Display'] italic font-normal bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+          he trabajado
+        </em>
+      </h2>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-10">
+      <button (click)="filterProjects('all')"
+              class="px-4 py-2 rounded-full text-sm transition-all duration-300"
+              [class]="selectedCategory === 'all'
+                ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-400/30'
+                : 'bg-white/5 text-white/40 border border-white/10 hover:bg-white/10'">
+        Todos
+      </button>
+      <button (click)="filterProjects('work')"
+              class="px-4 py-2 rounded-full text-sm transition-all duration-300"
+              [class]="selectedCategory === 'work'
+                ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-400/30'
+                : 'bg-white/5 text-white/40 border border-white/10 hover:bg-white/10'">
+        Trabajo
+      </button>
+      <button (click)="filterProjects('personal')"
+              class="px-4 py-2 rounded-full text-sm transition-all duration-300"
+              [class]="selectedCategory === 'personal'
+                ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-400/30'
+                : 'bg-white/5 text-white/40 border border-white/10 hover:bg-white/10'">
+        Personal
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let project of filteredProjects">
+        <app-projects-card [project]="project"></app-projects-card>
+      </div>
+    </div>
+
+    <div class="mt-16 bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 md:p-8">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.12em] text-white/30 font-medium">Destacados</h3>
+          <p class="text-white/60 text-sm mt-1">Proyectos principales</p>
+        </div>
+        <div class="flex gap-2">
+          <button (click)="prevSlide()"
+                  class="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all text-white/40 hover:text-white/70">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button (click)="nextSlide()"
+                  class="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all text-white/40 hover:text-white/70">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="relative overflow-hidden">
+        <div class="flex transition-transform duration-500 ease-out"
+             [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+          <div *ngFor="let project of featuredProjects"
+               class="min-w-full flex flex-col md:flex-row gap-6">
+
+            <div class="md:w-2/5 h-48 md:h-auto rounded-xl overflow-hidden">
+              <img [src]="project.coverImage || project.image"
+                   [alt]="project.title"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <div class="md:w-3/5 flex flex-col justify-center">
+              <h4 class="text-xl font-medium text-white">{{ project.title }}</h4>
+              <p class="text-white/40 text-sm mb-3">{{ project.subtitle }}</p>
+              <p class="text-white/60 text-sm mb-4">{{ project.description }}</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span *ngFor="let tech of project.technologies"
+                      class="px-2.5 py-1 bg-white/5 rounded-full text-[10px] text-white/40 border border-white/5">
+                  {{ tech }}
+                </span>
+              </div>
+              <button (click)="openModal(project)"
+                      class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors text-sm font-medium">
+                Ver detalles
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-1.5 mt-4">
+        <button *ngFor="let project of featuredProjects; let i = index"
+                (click)="goToSlide(i)"
+                class="h-1 rounded-full transition-all duration-300"
+                [class]="currentSlide === i ? 'w-6 bg-indigo-400' : 'w-3 bg-white/20 hover:bg-white/40'">
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+@if (isModalOpen) {
+  <app-project-details [project]="selectedProject" (closeDetails)="closeModal()"></app-project-details>
+}

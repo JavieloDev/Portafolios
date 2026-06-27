@@ -1,26 +1,27 @@
-/* Estado activo — sidebar desktop */
+/* ─── Desktop  ─── */
 .nav-link {
   color: rgba(255, 255, 255, 0.35);
 }
+
 .nav-link:hover {
   color: rgba(255, 255, 255, 0.85);
   background: rgba(255, 255, 255, 0.04);
 }
+
 .nav-link.nav-active {
   color: #818cf8;
   background: rgba(99, 102, 241, 0.08);
 }
-.nav-link.nav-active .active-dot {
-  opacity: 1;
-}
 
-/* Estado activo — bottom nav móvil */
+/* ─── Mobile  ─── */
 .mobile-link {
   color: rgba(255, 255, 255, 0.30);
 }
+
 .mobile-link:hover {
   color: rgba(255, 255, 255, 0.70);
 }
+
 .mobile-link.mobile-active {
   color: #818cf8;
 }
